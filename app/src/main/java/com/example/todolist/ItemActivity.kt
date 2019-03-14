@@ -23,7 +23,7 @@ import kotlinx.android.synthetic.main.activity_item.*
 class ItemActivity : AppCompatActivity() {
 
     lateinit var dbHandler : DBHandler
-    var todoId : Long = -1
+    var todoId: Long = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
