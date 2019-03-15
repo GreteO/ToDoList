@@ -4,4 +4,6 @@
     <string name="delete">Delete</string>
     <string name="mark_as_completed">Mark as completed</string>
     <string name="reset">Reset</string>
+    <string name="appwidget_text">To Do List</string>
+    <string name="add_widget">Add widget</string>
 </resources>

@@ -40,18 +40,11 @@ class DashboardActivity : AppCompatActivity() {
             val view = layoutInflater.inflate(R.layout.dialog_dashboard, null)
             val toDoName = view.findViewById<EditText>(R.id.ev_todo)
 
-           // val toDoCreatedAt = view.findViewById<EditText>(R.id.ev_todo)
-
-
             dialog.setView(view)
             dialog.setPositiveButton("Add") { _: DialogInterface, _: Int ->
                 if(toDoName.text.isNotEmpty()){
                     val toDo = ToDo()
                     toDo.name = toDoName.text.toString()
-
-                    //toDo.createdAt = toDoCreatedAt.text.toString()
-
-
 
                     dbHandler.addToDo(toDo)
                     refreshList()
@@ -75,8 +68,6 @@ class DashboardActivity : AppCompatActivity() {
         dialog.setPositiveButton("Update") { _: DialogInterface, _: Int ->
             if(toDoName.text.isNotEmpty()){
                 toDo.name = toDoName.text.toString()
-               // toDo.createdAt = toDoCreatedAt.text.toString()
-
 
                 dbHandler.updateToDo(toDo)
                 refreshList()
@@ -109,10 +100,7 @@ class DashboardActivity : AppCompatActivity() {
 
         override fun onBindViewHolder(holder: ViewHolder, p1: Int) {
             holder.toDoName.text = list[p1].name
-
             holder.toDoCreatedAt.text = list[p1].createdAt
-
-
 
             holder.toDoName.setOnClickListener{
                 val intent = Intent(activity,ItemActivity::class.java)
@@ -158,7 +146,6 @@ class DashboardActivity : AppCompatActivity() {
         class ViewHolder(v : View) : RecyclerView.ViewHolder(v){
             val toDoName : TextView = v.findViewById(R.id.tv_todo_name)
             val menu : ImageView = v.findViewById(R.id.iv_menu)
-
             val toDoCreatedAt : TextView = v.findViewById(R.id.tv_todo_createdAt)
         }
     }

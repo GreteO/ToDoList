@@ -11,14 +11,19 @@ Projekt on tehtud 5. osalise youtube õpetuse põhjal:
 5) https://www.youtube.com/watch?v=riPr9Zxue_o
 
 Hinnang:
+
 Juhend oli üldiselt üsna põhjalik. Autori poolt oli välja pandud lingid vajalikele failidele(mipmap, ikoonid)
 ning lisaks olid ka olemas koodifailid. Juhendis esines mõningaid vigu, millest osad parandas ära autor ise järgnevas videos.
-Esines aga ka selliseid, millele ta tähelepanu polnud pööranud, kuid mul tekitas erroreid.
+Esines aga ka selliseid, millele ta tähelepanu polnud pööranud, kuid tööle pannes tekitas erroreid.
 
 Juhendi miinuseks võiks lugeda video autori liiga kiiret edasiminekut ning vähest seletamist. Hiljem oma muutatuste
 lisamine oli kohati keerukas, kuna koodis toimuvast arusaamine jäi puudulikuks.
 
+Muutused SDK versioonis:
+
+Erilisi muutusi seoses SDK versiooniga tegema ei pidanud.
 
 Muudatused:
+
 Koodile lisasin tegevuse nime kõrvale ka kuupäeva ja kellaaja näitamise.
 
