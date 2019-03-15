@@ -10,6 +10,8 @@ import android.os.Build
 import android.util.Log
 import com.example.todolist.DTO.ToDo
 import com.example.todolist.DTO.ToDoItem
+import java.lang.String.format
+import java.text.DateFormat.getDateInstance
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -84,34 +86,32 @@ class DBHandler(val context: Context) : SQLiteOpenHelper(context, DB_NAME, null,
                 todo.id = queryResult.getLong(queryResult.getColumnIndex(COL_ID))
                 todo.name = queryResult.getString(queryResult.getColumnIndex(COL_NAME))
 
-                todo.createdAt = queryResult.getString(queryResult.getColumnIndex(COL_CREATED_AT))
-               /* val timeFromDB= queryResult.getString(queryResult.getColumnIndex(COL_CREATED_AT))
-                //timedateformat start
+                //todo.createdAt = queryResult.getString(queryResult.getColumnIndex(COL_CREATED_AT))
+                val timeFromDB= queryResult.getString(queryResult.getColumnIndex(COL_CREATED_AT))
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    //val current = queryResult.getString(queryResult.getColumnIndex(COL_CREATED_AT))
                     val formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy. HH:mm:ss")
-                    todo.createdAt =  timeFromDB.format(formatter)
-                    //Log.d("answer",answer)
+                    todo.createdAt =  timeFromDB.toString().format(formatter)
                 } else {
-                    //var date = Date().parse(timeFromDB)
-                    val formatter = SimpleDateFormat("dd.MM.yyyy HH:mm:ss")
-                    val answer = formatter.format(timeFromDB)
-                    Log.d("answer",answer)
-                    todo.createdAt = answer
+                    var date = getDisplayDateTime(timeFromDB)
+                     todo.createdAt = format(date)
                 }
-*/
-                //timedateformat end
-
-                //Log.d("answer", todo.name)
-
-
                 result.add(todo)
             } while (queryResult.moveToNext())
         }
         queryResult.close()
         return result
+    }
 
+    fun getDisplayDateTime(timeFromDB: String): String {
+        try {
+            val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.getDefault())
+            val date = simpleDateFormat.parse(timeFromDB)
+            val convertDateFormat = SimpleDateFormat("dd.MM.yyyy  HH:mm", Locale.getDefault())
+            return convertDateFormat.format(date)
+        } catch (e: Exception) {
+            return ""
+        }
     }
 
     fun addToDoItem(item: ToDoItem): Boolean {

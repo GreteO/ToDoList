@@ -21,7 +21,7 @@ lisamine oli kohati keerukas, kuna koodis toimuvast arusaamine jäi puudulikuks.
 
 Muutused SDK versioonis:
 
-Erilisi muutusi seoses SDK versiooniga tegema ei pidanud.
+Pidi lisama kuupäeva formaadi muutmise olenevalt SDK versioonist, kuna uuem ei toiminud vanematel.
 
 Muudatused:
 
